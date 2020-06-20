@@ -28,13 +28,11 @@ int main() {
 
     for (int i=0; i<q; i++) {
         int u, k; cin >> u >> k;
-        if (k == 1) {
+        if (k == 1)
             cout << u << endl;
-            continue;
-        }
-        if (k <= children[u]) {
+        else if (k <= children[u]) {
             int index = find(order.begin(), order.end(), u) - order.begin();
-            cout << (index+k-1 < order.size() ? order[index+k-1]:-1) << endl;
+            cout << order[index+k-1] << endl;
         }
         else cout << -1 << endl;
     }
