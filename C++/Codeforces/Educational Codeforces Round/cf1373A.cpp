@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #define ll long long
-#define MAXX 1000000000
 
 using namespace std;
 
@@ -20,19 +19,19 @@ int main() {
         ll a, b, c; cin >> a >> b >> c;
         ll costa1 = costa(1, a);
         ll costb1 = costb(1, b, c);
-        ll costamax = costa(MAXX, a);
-        ll costbmax = costb(MAXX, b, c);
+        ll costa2 = costa(b, a);
+        ll costb2 = costb(b, b, c);
         if (costa1 < costb1) {
-            if (costbmax < costamax) cout << 1 << " " << MAXX << endl;
+            if (costb2 < costa2) cout << 1 << " " << b << endl;
             else cout << 1 << " " << -1 << endl;
         }
         else if (costb1 < costa1) {
-            if (costamax < costbmax) cout << MAXX << " " << 1 << endl;
+            if (costa2 < costb2) cout << b << " " << 1 << endl;
             else cout << -1 << " " << 1 << endl;
         }
         else {
-            if (costbmax < costamax) cout << -1 << " " << MAXX << endl;
-            else if (costamax < costbmax) cout << MAXX << " " << -1 << endl;
+            if (costb2 < costa2) cout << -1 << " " << b << endl;
+            else if (costa2 < costb2) cout << b << " " << -1 << endl;
             else cout << -1 << " " << -1 << endl;
         }
     }
